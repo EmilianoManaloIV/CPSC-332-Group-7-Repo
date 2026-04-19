@@ -1,8 +1,7 @@
 -- ============================================
 -- CPSC 332 - Project
--- File: create_tables_groupX.sql
---       (rename: replace X with your group number)
--- Group: [Replace with your group number, e.g., Group1]
+-- File: create_tables_group7.sql
+-- Group: Group 7
 -- Members: [List all member names]
 -- Date: [Date]
 -- ============================================
@@ -12,9 +11,9 @@
 -- SECTION 1: DATABASE SETUP
 -- ============================================
 
-DROP DATABASE IF EXISTS world_group7; -- Replace X with your group number
-CREATE DATABASE world_group7;         -- Replace X with your group number
-USE world_group7;                     -- Replace X with your group number
+DROP DATABASE IF EXISTS world_group7;
+CREATE DATABASE world_group7;
+USE world_group7;
 
 
 -- ============================================
@@ -54,8 +53,6 @@ CREATE TABLE City (
   PRIMARY KEY (ID)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
-
 -- CountryLanguage table
 
 CREATE TABLE CountryLanguage (
@@ -69,8 +66,6 @@ CREATE TABLE CountryLanguage (
 
 -- ============================================
 -- SECTION 3: WORLD DB FOREIGN KEYS (DO NOT MODIFY)
--- These FK constraints are provided for you.
--- The original world.sql does not include them.
 -- ============================================
 
 ALTER TABLE City
@@ -84,40 +79,64 @@ ALTER TABLE CountryLanguage
 
 -- ============================================
 -- SECTION 4: YOUR NEW TABLES (MODIFY THIS SECTION)
--- Add exactly 3 new tables below.
--- Requirements for each table:
---   - At least one PRIMARY KEY
---   - At least one FOREIGN KEY referencing an existing table
---   - Appropriate data types and NOT NULL constraints
 -- ============================================
 
--- EXAMPLE (delete this before submitting):
--- CREATE TABLE Economic_Indicators (
---     indicator_id  INT          NOT NULL AUTO_INCREMENT,
---     country_code  CHAR(3)      NOT NULL,
---     year          YEAR         NOT NULL,
---     gdp_billion   DECIMAL(15,2),
---     inflation_rate DECIMAL(5,2),
---     PRIMARY KEY (indicator_id),
---     CONSTRAINT fk_econ_country
---         FOREIGN KEY (country_code) REFERENCES Country(Code)
--- );
+-- ============================================
+-- New Table 1: Energy_Production
+-- Purpose: Tracks annual national energy production by type.
+-- ============================================
 
--- New Table 1: [TableName]
--- Purpose: [Briefly describe what this table represents]
--- CREATE TABLE [TableName] (
---     -- your columns here
--- );
+CREATE TABLE Energy_Production (
+    country_code CHAR(3) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+    year YEAR NOT NULL,
+    total_energy_produced BIGINT,
+    renewable_percentage DECIMAL(5,2),
+    fossil_fuel_percentage DECIMAL(5,2),
+    nuclear_percentage DECIMAL(5,2),
 
--- -- New Table 2: [TableName]
--- -- Purpose: [Briefly describe what this table represents]
--- CREATE TABLE [TableName] (
---     -- your columns here
--- );
+    PRIMARY KEY (country_code, year),
 
--- -- New Table 3: [TableName]
--- -- Purpose: [Briefly describe what this table represents]
--- CREATE TABLE [TableName] (
---     -- your columns here
--- );
+    CONSTRAINT fk_energy_country
+        FOREIGN KEY (country_code) REFERENCES Country(Code)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+
+-- ============================================
+-- New Table 2: Climate_Data
+-- Purpose: Tracks climate indicators for each country per year.
+-- ============================================
+
+CREATE TABLE Climate_Data (
+    country_code CHAR(3) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+    year YEAR NOT NULL,
+    avg_temperature DECIMAL(4,1),
+    avg_rainfall DECIMAL(8,2),
+    drought_index DECIMAL(5,2),
+    co2_emissions DECIMAL(10,2),
+
+    PRIMARY KEY (country_code, year),
+
+    CONSTRAINT fk_climate_country
+        FOREIGN KEY (country_code) REFERENCES Country(Code)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+
+-- ============================================
+-- New Table 3: Education_Indicators
+-- Purpose: Tracks education-related statistics for each country.
+-- ============================================
+
+CREATE TABLE Education_Indicators (
+    country_code CHAR(3) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+    education_id INT NOT NULL AUTO_INCREMENT,
+    year YEAR NOT NULL,
+    literacy_percentage DECIMAL(5,2) DEFAULT NULL,
+    primary_enrollment_pct DECIMAL(5,2) DEFAULT NULL,
+    secondary_enrollment_pct DECIMAL(5,2) DEFAULT NULL,
+    education_gdp_pct DECIMAL(5,2) DEFAULT NULL,
+
+    PRIMARY KEY (education_id),
+
+    CONSTRAINT fk_education_country
+        FOREIGN KEY (country_code) REFERENCES Country(Code)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
