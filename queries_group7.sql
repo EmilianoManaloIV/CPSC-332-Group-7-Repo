@@ -10,7 +10,7 @@
 -- ============================================
 -- SECTION 1: DATABASE SETUP (DO NOT MODIFY)
 -- ============================================
-USE world_groupX;                     -- Replace X with your group number
+USE world_group7;                     -- Replace X with your group number
 
 
 -- ============================================
