@@ -12,9 +12,9 @@
 -- SECTION 1: DATABASE SETUP
 -- ============================================
 
-DROP DATABASE IF EXISTS world_groupX; -- Replace X with your group number
-CREATE DATABASE world_groupX;         -- Replace X with your group number
-USE world_groupX;                     -- Replace X with your group number
+DROP DATABASE IF EXISTS world_group7; -- Replace X with your group number
+CREATE DATABASE world_group7;         -- Replace X with your group number
+USE world_group7;                     -- Replace X with your group number
 
 
 -- ============================================
