@@ -1,4 +1,4 @@
-Entity,Code,Year,Total across all levels of education,Total across all levels of education (Original Year)
+country,country_code,year,education_total,education_total_original_year
 Afghanistan,AFG,2000,14.559212,2006
 Albania,ALB,2000,11.371651,2005
 Algeria,DZA,2000,11.02076,2008
