@@ -1,4 +1,4 @@
-Entity,Code,Year,Net enrollment,Gross enrollment
+country,country_code,year,net_enrollment,gross_enrollment
 Argentina,ARG,2000,76.43231,71.66987
 Argentina,ARG,2001,80.41301,74.57651
 Argentina,ARG,2002,82.04456,75.36766
