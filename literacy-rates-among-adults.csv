@@ -1,4 +1,4 @@
-Entity,Code,Year,Literacy rate among adults,Literacy rate among adults (Original Year)
+country,country_code,year,literacy_rate_adults,literacy_rate_adults_original_year
 Albania,ALB,2000,99,2001
 Algeria,DZA,2000,70,2002
 Angola,AGO,2000,67,2001
