@@ -1,4 +1,4 @@
-Entity,Code,Year,CO₂ emissions per capita
+country,country_code,year,co2_per_capita
 Argentina,ARG,2000,3.8521757
 Argentina,ARG,2001,3.588163
 Argentina,ARG,2002,3.2850976
