@@ -1,4 +1,4 @@
-Entity,Code,Year,Renewables
+country,country_code,year,renewables_share
 Afghanistan,AFG,2000,64.583336
 Albania,ALB,2000,96.1945
 Algeria,DZA,2000,0.1968504
