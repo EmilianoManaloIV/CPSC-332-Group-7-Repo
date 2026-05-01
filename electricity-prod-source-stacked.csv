@@ -1,4 +1,4 @@
-Entity,Code,Year,Other renewables,Bioenergy,Solar,Wind,Hydropower,Nuclear,Oil,Gas,Coal
+country,country_code,year,other_renewables,bioenergy,solar,wind,hydropower,nuclear,oil,gas,coal
 Argentina,ARG,2000,0,0.39,0,0.03,28.58,6.18,3.14,48.88,1.78
 Argentina,ARG,2001,0,0.36,0,0.05,36.58,7.06,1.47,43.26,1.36
 Argentina,ARG,2002,0,0.53,0,0.07,35.78,5.82,0.87,40.71,0.81
