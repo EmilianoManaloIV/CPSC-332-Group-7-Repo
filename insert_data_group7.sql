@@ -5355,10 +5355,32 @@ COMMIT;
 --     ('BRA', 2023,  2081.24);
 -- COMMIT;
 
--- START TRANSACTION;
--- -- [TableName1] - at least 20 rows, spread across 4+ continents
--- INSERT INTO [TableName1] (col1, col2, ...) VALUES (...);
--- COMMIT;
+START TRANSACTION;
+INSERT INTO Energy_Production 
+    (country_code, year, total_energy_produced, 
+     renewable_percentage, fossil_fuel_percentage, nuclear_percentage)
+VALUES
+    ('ARG', 2025, 153150, 34.58, 58.39, 7.03),
+    ('AUS', 2025, 281640, 38.62, 61.38, 0),
+    ('BRA', 2025, 750530, 86.60, 11.28, 2.11),
+    ('CAN', 2025, 652440, 63.90, 23.02, 13.08),
+    ('CHN', 2025, 10583360, 37.04, 58.35, 4.61),
+    ('EGY', 2025, 237390, 13.02, 86.98, 0),
+    ('FRA', 2025, 523490, 26.06, 5.15, 68.79),
+    ('DEU', 2025, 500470, 59.09, 40.91, 0),
+    ('IND', 2025, 2081600, 24.07, 73.35, 2.59),
+    ('IDN', 2025, 371070, 18.09, 81.91, 0),
+    ('JPN', 2025, 1029860, 23.57, 67.29, 9.14),
+    ('KEN', 2025, 11740, 90.03, 9.97, 0),
+    ('MEX', 2025, 357970, 23.09, 74.06, 2.85),
+    ('NZL', 2025, 39120, 88.53, 11.47, 0),
+    ('NGA', 2025, 41540, 25.00, 75.00, 0),
+    ('PER', 2025, 60440, 63.65, 36.35, 0),
+    ('ZAF', 2025, 241760, 13.63, 82.16, 4.21),
+    ('SWE', 2025, 170710, 71.19, 1.22, 27.59),
+    ('GBR', 2025, 292310, 51.97, 35.58, 12.45),
+    ('USA', 2025, 655890, 25.64, 56.99, 17.36);
+COMMIT;
 
 -- START TRANSACTION;
 -- -- [TableName2] - at least 20 rows, spread across 4+ continents
