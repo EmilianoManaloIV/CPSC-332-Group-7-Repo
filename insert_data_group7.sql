@@ -5386,8 +5386,57 @@ COMMIT;
 -- -- [TableName2] - at least 20 rows, spread across 4+ continents
 -- INSERT INTO [TableName2] (col1, col2, ...) VALUES (...);
 -- COMMIT;
-
+START TRANSACTION;
+INSERT INTO Education_Indicators
+    (country_code, year, literacy_percentage, primary_enrollment_pct, secondary_enrollment_pct, education_gdp_pct)
+VALUES
+    ('ARG', 2020, NULL, 99.17, 99.29, 5.28),
+    ('AUS', 2020, NULL, 99.42, 99.43, 5.38),
+    ('BRA', 2020, NULL, 95.48, 96.57, 5.77),
+    ('CAN', 2020, NULL, 96.91, 99.19, 4.89),
+    ('CHN', 2020, 97.00, NULL, NULL, 4.23),
+    ('EGY', 2020, NULL, 95.52, 86.49, NULL),
+    ('FRA', 2020, NULL, 99.98, 99.96, 5.66),
+    ('DEU', 2020, NULL, 98.81, 98.64, 5.59),
+    ('IND', 2020, NULL, 95.94, 88.98, 4.04),
+    ('IDN', 2020, 96.00, 97.32, 93.30, 1.02),
+    ('JPN', 2020, NULL, 99.87, 99.95, 3.31),
+    ('KEN', 2020, NULL, NULL, NULL, 5.05),
+    ('MEX', 2020, 95.00, 99.71, 92.36, 4.50),
+    ('NZL', 2020, NULL, 98.71, 98.59, 5.65),
+    ('NGA', 2020, NULL, NULL, NULL, 0.36),
+    ('PER', 2020, 94.00, 99.68, 97.69, 4.26),
+    ('ZAF', 2020, NULL, 91.85, 90.78, 6.17),
+    ('SWE', 2020, NULL, 99.32, 99.44, 7.93),
+    ('GBR', 2020, NULL, 99.98, 98.84, 5.44),
+    ('USA', 2020, NULL, 97.99, 99.83, 5.40);
+COMMIT;
 -- START TRANSACTION;
 -- -- [TableName3] - at least 20 rows, spread across 4+ continents
 -- INSERT INTO [TableName3] (col1, col2, ...) VALUES (...);
 -- COMMIT;
+START TRANSACTION;
+INSERT INTO Climate_Data
+    (country_code, year, avg_temperature, avg_rainfall, drought_index, co2_emissions)
+VALUES
+    ('ARG', 2020, 15.3, 578.40, NULL, 3.64),
+    ('AUS', 2020, 22.6, 468.11, NULL, 15.48),
+    ('BRA', 2020, 25.2, 1665.85, NULL, 2.15),
+    ('CAN', 2020, -3.6, 730.59, NULL, 13.73),
+    ('CHN', 2020, 7.6, 834.86, NULL, 7.64),
+    ('EGY', 2020, 23.2, 26.94, NULL, 2.25),
+    ('FRA', 2020, 14.5, 1137.01, NULL, 4.27),
+    ('DEU', 2020, 10.5, 820.91, NULL, 7.74),
+    ('IND', 2020, 24.2, 1315.39, NULL, 1.73),
+    ('IDN', 2020, 25.7, 3613.39, NULL, 2.27),
+    ('JPN', 2020, 12.8, 1922.79, NULL, 8.21),
+    ('KEN', 2020, 25.5, 962.37, NULL, 0.38),
+    ('MEX', 2020, 21.6, 763.40, NULL, 3.38),
+    ('NZL', 2020, 11.0, 1401.80, NULL, 6.73),
+    ('NGA', 2020, 27.3, 1000.73, NULL, 0.58),
+    ('PER', 2020, 19.4, 2012.73, NULL, 1.44),
+    ('ZAF', 2020, 18.2, 521.36, NULL, 7.19),
+    ('SWE', 2020, 5.4, 854.15, NULL, 3.54),
+    ('GBR', 2020, 9.9, 1181.34, NULL, 4.84),
+    ('USA', 2020, 10.3, 813.39, NULL, 13.82);
+COMMIT;
