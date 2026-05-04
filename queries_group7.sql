@@ -1,10 +1,10 @@
 -- ============================================
 -- CPSC 332 - Project
--- File: queries_groupX.sql
+-- File: queries_group7.sql
 --       (rename: replace X with your group number)
--- Group: [Replace with your group number, e.g., Group1]
--- Members: [List all member names]
--- Date: [Date]
+-- Group: Group7
+-- Members: Zeus, Ava, Emiliano, Sean
+-- Date: 04/08/2026
 -- ============================================
 
 -- ============================================
