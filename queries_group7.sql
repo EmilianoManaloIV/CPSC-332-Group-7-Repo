@@ -109,19 +109,22 @@ WHERE primary_enrollment_pct IN (
     FROM Education_Indicators
 );
 
--- Query 7 (Category: SUBQUERIES): Find countries that have climate data but no recorded energy production in 2020.
+-- Query 7 (Category: SUBQUERIES - EXISTS): Find countries with high climate stress that also exceed the global average literacy rate.
 SELECT 
     c.country_code,
-    c.avg_temperature,
-    c.climate_stress_index
+    c.climate_stress_index,
+    ei.literacy_percentage
 FROM Climate_Data c
+JOIN Education_Indicators ei
+    ON c.country_code = ei.country_code
 WHERE c.year = 2020
-  AND NOT EXISTS (
-        SELECT 1
-        FROM Energy_Production e
-        WHERE e.country_code = c.country_code
-          AND e.year = 2020
+  AND c.climate_stress_index > 0.5
+  AND ei.literacy_percentage > (
+        SELECT AVG(literacy_percentage)
+        FROM Education_Indicators
+        WHERE year = 2020
       );
+
 
 
 
