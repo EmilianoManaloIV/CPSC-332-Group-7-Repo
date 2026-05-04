@@ -2,7 +2,7 @@
 -- CPSC 332 - Project
 -- File: create_tables_group7.sql
 -- Group: Group 7
--- Member/s: Sean, Ava, Emiliano, Zeus
+-- Member/s: Sean Lowry, Ava, Emiliano, Zeus
 -- Date:/ 04/08/2026
 -- ============================================
 
