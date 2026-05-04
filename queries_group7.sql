@@ -159,20 +159,21 @@ JOIN Country c ON ei.country_code = c.Code
 GROUP BY c.Region
 ORDER BY avg_literacy_pct DESC;
 
--- Query 10 (Category: AGGREGATION QUERIES - Uses HAVING): Find continents whose average CO2 emissions exceed the global average.
+-- Query 10 (Category: AGGREGATION QUERIES): Identify continents whose average renewable energy percentage is below the global average.
 SELECT 
     c.Continent,
-    ROUND(AVG(cd.co2_emissions), 2) AS avg_continent_co2
-FROM Climate_Data cd
+    ROUND(AVG(e.renewable_percentage), 2) AS avg_continent_renewables
+FROM Energy_Production e
 JOIN Country c 
-    ON cd.country_code = c.Code
-WHERE cd.year = 2020
+    ON e.country_code = c.Code
+WHERE e.year = 2020
 GROUP BY c.Continent
-HAVING AVG(cd.co2_emissions) > (
-        SELECT AVG(co2_emissions)
-        FROM Climate_Data
+HAVING AVG(e.renewable_percentage) < (
+        SELECT AVG(renewable_percentage)
+        FROM Energy_Production
         WHERE year = 2020
       );
+
 
 -- ============================================
 -- PART 4: RANKING QUERIES (2 queries)
