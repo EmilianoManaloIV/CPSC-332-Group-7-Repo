@@ -3,7 +3,7 @@
 -- File: queries_group7.sql
 --       (rename: replace X with your group number)
 -- Group: Group7
--- Members: Zeus, Ava, Emiliano, Sean Lowry
+-- Members: Zeus Salinas, Ava Saltzman, Emiliano Manalo, Sean Lowry
 -- Date: 04/08/2026
 -- ============================================
 
