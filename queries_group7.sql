@@ -37,14 +37,7 @@ USE world_group7;                     -- Replace X with your group number
 -- PART 1: JOIN QUERIES (4 queries)
 -- Must involve two or more tables
 -- At least one must be an OUTER JOIN (LEFT JOIN or RIGHT JOIN)
-
--- EXAMPLE (delete this before submitting):
--- Query 0: Find the GDP of countries specifically in the 'Caribbean' region
--- SELECT Country.Name, Economic_Indicators.gdp_billion
--- FROM Country
--- JOIN Economic_Indicators ON Country.Code = Economic_Indicators.country_code
--- WHERE Country.Region = 'Caribbean';
--- ============================================
+--=============================================
 
 -- Query 1 (Category: JOIN - OUTER JOIN): Compare temperature data even when energy data is missing (the original one you wanted).
 SELECT 
@@ -90,16 +83,6 @@ WHERE e.year = 2020;
 -- PART 2: SUBQUERIES (3 queries)
 -- Must include at least one EXISTS or NOT EXISTS
 -- Must include at least one IN, NOT IN, or correlated subquery
-
--- EXAMPLE (delete this before submitting):
--- Query 0: Find countries that are major tourist hubs (over 20 million visitors) using IN
--- SELECT Country.Name
--- FROM Country
--- WHERE Country.Code IN (
---     SELECT Tourism_Statistics.country_code
---     FROM Tourism_Statistics
---     WHERE Tourism_Statistics.visitors_mil > 20
--- );
 -- ============================================
 
 -- Query 5 (Category: Subquery - IN): 
@@ -145,18 +128,9 @@ WHERE c.year = 2020
 -- ============================================
 -- PART 3: AGGREGATION QUERIES (3 queries)
 -- Must use GROUP BY; at least one must use HAVING
-
--- EXAMPLE (delete this before submitting):
--- Query 0: Show total tourism revenue by continent (only continents above 100 billion)
--- SELECT Country.Continent, SUM(Tourism_Statistics.revenue_billion) AS total_revenue
--- FROM Country
--- JOIN Tourism_Statistics ON Country.Code = Tourism_Statistics.country_code
--- GROUP BY Country.Continent
--- HAVING SUM(Tourism_Statistics.revenue_billion) > 100;
 -- ============================================
 
--- Query 8 (Category: Aggregation): 
--- Compute average renewable energy share by climate stress category.
+-- Query 8 (Category: Aggregation): Compute average renewable energy share by climate stress category.
 SELECT 
     CASE 
         WHEN c.climate_stress_index >= 0.5 THEN 'High Stress'
@@ -182,7 +156,7 @@ JOIN Country c ON ei.country_code = c.Code
 GROUP BY c.Region
 ORDER BY avg_literacy_pct DESC;
 
--- Query 10 (Category: AGGREGATION QUERIES -- HAVING): Find continents whose average CO2 emissions exceed the global average.
+-- Query 10 (Category: AGGREGATION QUERIES - Uses HAVING): Find continents whose average CO2 emissions exceed the global average.
 SELECT 
     c.Continent,
     ROUND(AVG(cd.co2_emissions), 2) AS avg_continent_co2
@@ -197,24 +171,14 @@ HAVING AVG(cd.co2_emissions) > (
         WHERE year = 2020
       );
 
-
-
 -- ============================================
 -- PART 4: RANKING QUERIES (2 queries)
 -- Must use ORDER BY; LIMIT is optional
 -- Must involve at least two tables
 
--- EXAMPLE (delete this before submitting):
--- Query 0: Top 5 countries by number of tourist visitors
--- SELECT Country.Name, Tourism_Statistics.visitors_mil
--- FROM Country
--- JOIN Tourism_Statistics ON Country.Code = Tourism_Statistics.country_code
--- ORDER BY Tourism_Statistics.visitors_mil DESC
--- LIMIT 5;
 -- ============================================
 
--- Query 11 (Category: Ranking): 
--- Rank countries by lowest CO2 emissions, breaking ties with highest renewable energy.
+-- Query 11 (Category: Ranking): Rank countries by lowest CO2 emissions, breaking ties with highest renewable energy.
 SELECT 
     e.country_code,
     c.co2_emissions,
