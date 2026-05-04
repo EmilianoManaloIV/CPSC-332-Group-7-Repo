@@ -85,7 +85,18 @@ WHERE c.year = 2020;
 -- );
 -- ============================================
 
--- Query 5 (Category: SUBQUERIES): [Describe your query here]
+-- Query 5 (Category: Subquery - IN): 
+-- Find countries whose renewable percentage is above the global average.
+SELECT 
+    country_code,
+    renewable_percentage
+FROM Energy_Production
+WHERE year = 2020
+  AND renewable_percentage > (
+        SELECT AVG(renewable_percentage)
+        FROM Energy_Production
+        WHERE year = 2020
+      );
 
 
 -- Query 6 (Category: SUBQUERIES): [Describe your query here]
