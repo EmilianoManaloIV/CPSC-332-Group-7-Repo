@@ -48,7 +48,16 @@ USE world_group7;                     -- Replace X with your group number
 -- WHERE Country.Region = 'Caribbean';
 -- ============================================
 
--- Query 1 (Category: JOIN): [Describe your query here]
+-- Query 1 (Category: JOIN - OUTER JOIN): Compare temperature data even when energy data is missing (the original one you wanted).
+SELECT 
+    c.country_code,
+    c.avg_temperature,
+    e.total_energy_produced
+FROM Climate_Data c
+LEFT JOIN Energy_Production e
+    ON c.country_code = e.country_code
+    AND e.year = 2020
+WHERE c.year = 2020;
 
 
 -- Query 2 (Category: JOIN): [Describe your query here]
