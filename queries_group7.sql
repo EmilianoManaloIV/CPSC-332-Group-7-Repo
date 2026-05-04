@@ -154,7 +154,18 @@ GROUP BY stress_group;
 -- LIMIT 5;
 -- ============================================
 
--- Query 11 (Category: RANKING QUERIES): [Describe your query here]
+-- Query 11 (Category: Ranking): 
+-- Rank countries by lowest CO2 emissions, breaking ties with highest renewable energy.
+SELECT 
+    e.country_code,
+    c.co2_emissions,
+    e.renewable_percentage
+FROM Energy_Production e
+JOIN Climate_Data c
+    ON e.country_code = c.country_code
+WHERE e.year = 2020
+ORDER BY c.co2_emissions ASC,
+         e.renewable_percentage DESC;
 
 
 -- Query 12 (Category: RANKING QUERIES): [Describe your query here]
