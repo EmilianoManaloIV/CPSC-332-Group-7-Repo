@@ -125,9 +125,6 @@ WHERE c.year = 2020
         WHERE year = 2020
       );
 
-
-
-
 -- ============================================
 -- PART 3: AGGREGATION QUERIES (3 queries)
 -- Must use GROUP BY; at least one must use HAVING
@@ -174,7 +171,6 @@ HAVING AVG(e.renewable_percentage) < (
         WHERE year = 2020
       );
 
-
 -- ============================================
 -- PART 4: RANKING QUERIES (2 queries)
 -- Must use ORDER BY; LIMIT is optional
@@ -193,7 +189,6 @@ JOIN Climate_Data c
 WHERE e.year = 2020
 ORDER BY c.co2_emissions ASC,
          e.renewable_percentage DESC;
-
 
 -- Query 12 (Category: RANKING QUERIES): Ranks countries' literacy rate within each continent.
 SELECT 
