@@ -2,8 +2,8 @@
 -- CPSC 332 - Project
 -- File: create_tables_group7.sql
 -- Group: Group 7
--- Members: [List all member names]
--- Date: [Date]
+-- Member/s: Sean, Ava, Emiliano, Zeus
+-- Date:/ 04/08/2026
 -- ============================================
 
 
