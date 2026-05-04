@@ -106,7 +106,6 @@ WHERE year = 2020
         WHERE year = 2020
       );
 
-
 -- Query 6 (Category: SUBQUERIES): Finds countries with the highest primary school enrollment percentage.
 SELECT 
     country_code,
@@ -117,7 +116,6 @@ WHERE primary_enrollment_pct IN (
     SELECT MAX(primary_enrollment_pct)
     FROM Education_Indicators
 );
-
 
 -- Query 7 (Category: SUBQUERIES): [Describe your query here]
 
@@ -150,9 +148,17 @@ JOIN Energy_Production e
 WHERE e.year = 2020
 GROUP BY stress_group;
 
-
--- Query 9 (Category: AGGREGATION QUERIES): [Describe your query here]
-
+-- Query 9 (Category: AGGREGATION QUERIES): Shows the average literacy rate and education gdp percentage spent. (Shows payoff of investments into education)
+SELECT 
+    c.Region,
+    COUNT(ei.country_code)              AS num_countries,
+    ROUND(AVG(ei.literacy_percentage), 1)    AS avg_literacy_pct,
+    ROUND(AVG(ei.education_gdp_pct), 2)      AS avg_education_gdp_pct,
+    ROUND(AVG(ei.secondary_enrollment_pct), 1) AS avg_secondary_enrollment
+FROM Education_Indicators ei
+JOIN Country c ON ei.country_code = c.Code
+GROUP BY c.Region
+ORDER BY avg_literacy_pct DESC;
 
 -- Query 10 (Category: AGGREGATION QUERIES): [Describe your query here]
 
