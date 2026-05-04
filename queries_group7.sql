@@ -60,7 +60,15 @@ LEFT JOIN Energy_Production e
 WHERE c.year = 2020;
 
 
--- Query 2 (Category: JOIN): [Describe your query here]
+-- Query 2 (Category: JOIN): Shows the co2 emissions of countries with a high primary enrollment percentage. (shows dependency on fossil fuels in a highly educated country)
+SELECT ei.country_code, ei.year,
+       ei.primary_enrollment_pct,
+       c.co2_emissions
+FROM Education_Indicators ei
+JOIN Climate_Data c
+    ON ei.country_code = c.country_code
+   AND ei.year = c.year
+WHERE ei.primary_enrollment_pct > 90;
 
 
 -- Query 3 (Category: JOIN): [Describe your query here]
