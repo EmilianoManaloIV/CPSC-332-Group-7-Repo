@@ -182,7 +182,21 @@ JOIN Country c ON ei.country_code = c.Code
 GROUP BY c.Region
 ORDER BY avg_literacy_pct DESC;
 
--- Query 10 (Category: AGGREGATION QUERIES): [Describe your query here]
+-- Query 10 (Category: AGGREGATION QUERIES): Find continents whose average CO2 emissions exceed the global average.
+SELECT 
+    c.Continent,
+    ROUND(AVG(cd.co2_emissions), 2) AS avg_continent_co2
+FROM Climate_Data cd
+JOIN Country c 
+    ON cd.country_code = c.Code
+WHERE cd.year = 2020
+GROUP BY c.Continent
+HAVING AVG(cd.co2_emissions) > (
+        SELECT AVG(co2_emissions)
+        FROM Climate_Data
+        WHERE year = 2020
+      );
+
 
 
 -- ============================================
