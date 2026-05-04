@@ -49,8 +49,7 @@ USE world_group7;                     -- Replace X with your group number
 -- ============================================
 
 -- Query 1 (Category: JOIN - OUTER JOIN): Compare temperature data even when energy data is missing (the original one you wanted).
-SELECT 
-    c.country_code,
+SELECT c.country_code,
     c.avg_temperature,
     e.total_energy_produced
 FROM Climate_Data c
@@ -80,8 +79,14 @@ JOIN Education_Indicators ei
 WHERE ei.year = 2020;
 
 -- Query 4 (Category: JOIN): Shows renewable energy percentage for each country in 2020.
-SELECT c.Name,
-	   ep.renewable_percentage,
+SELECT 
+    c.Name AS country,
+    e.renewable_percentage
+FROM Country c
+JOIN Energy_Production e
+    ON c.Code = e.country_code
+WHERE e.year = 2020;
+
 
 -- ============================================
 -- PART 2: SUBQUERIES (3 queries)
