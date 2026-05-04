@@ -159,7 +159,7 @@ JOIN Country c ON ei.country_code = c.Code
 GROUP BY c.Region
 ORDER BY avg_literacy_pct DESC;
 
--- Query 10 (Category: AGGREGATION QUERIES): Identify continents whose average renewable energy percentage is below the global average.
+-- Query 10 (Category: AGGREGATION QUERIES - GROUP BY, HAVING): Identify continents whose average renewable energy percentage is below the global average.
 SELECT 
     c.Continent,
     ROUND(AVG(e.renewable_percentage), 2) AS avg_continent_renewables
