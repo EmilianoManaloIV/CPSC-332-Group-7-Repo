@@ -191,4 +191,13 @@ ORDER BY c.co2_emissions ASC,
          e.renewable_percentage DESC;
 
 
--- Query 12 (Category: RANKING QUERIES): [Describe your query here]
+-- Query 12 (Category: RANKING QUERIES): Ranks countries' literacy rate within each continent.
+SELECT 
+    c.Continent,
+    c.Name                                          AS country,
+    ROUND(ei.literacy_percentage, 1)               AS literacy_pct,
+    ROUND(ei.primary_enrollment_pct, 1)            AS primary_enrollment_pct,
+    ROUND(ei.education_gdp_pct, 2)                 AS education_gdp_pct
+FROM Education_Indicators ei
+JOIN Country c ON ei.country_code = c.Code
+ORDER BY c.Continent ASC, ei.literacy_percentage DESC;
