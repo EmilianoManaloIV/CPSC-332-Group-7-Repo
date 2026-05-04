@@ -12,7 +12,6 @@
 -- ============================================
 USE world_group7;                     -- Replace X with your group number
 
-
 -- ============================================
 -- SECTION 2: QUERIES (MODIFY THIS SECTION)
 -- Table names used in queries must match exactly what you defined in create_tables_groupX.sql
@@ -34,7 +33,6 @@ USE world_group7;                     -- Replace X with your group number
 --   - All queries must return at least one row using your inserted data
 -- ============================================
 
-
 -- ============================================
 -- PART 1: JOIN QUERIES (4 queries)
 -- Must involve two or more tables
@@ -49,7 +47,8 @@ USE world_group7;                     -- Replace X with your group number
 -- ============================================
 
 -- Query 1 (Category: JOIN - OUTER JOIN): Compare temperature data even when energy data is missing (the original one you wanted).
-SELECT c.country_code,
+SELECT 
+    c.country_code,
     c.avg_temperature,
     e.total_energy_produced
 FROM Climate_Data c
@@ -58,20 +57,20 @@ LEFT JOIN Energy_Production e
     AND e.year = 2020
 WHERE c.year = 2020;
 
-
 -- Query 2 (Category: JOIN): Shows the co2 emissions of countries with a high primary enrollment percentage. (shows dependency on fossil fuels in a highly educated country)
-SELECT ei.country_code, ei.year,
-       ei.primary_enrollment_pct,
-       c.co2_emissions
+SELECT 
+    ei.country_code, ei.year,
+    ei.primary_enrollment_pct,
+    c.co2_emissions
 FROM Education_Indicators ei
 JOIN Climate_Data c
     ON ei.country_code = c.country_code
    AND ei.year = c.year
 WHERE ei.primary_enrollment_pct > 90;
 
-
 -- Query 3 (Category: JOIN): Shows literacy percentage for each country in 2020.
-SELECT c.Name,
+SELECT 
+    c.Name,
     ei.literacy_percentage
 FROM Country c
 JOIN Education_Indicators ei
@@ -86,7 +85,6 @@ FROM Country c
 JOIN Energy_Production e
     ON c.Code = e.country_code
 WHERE e.year = 2020;
-
 
 -- ============================================
 -- PART 2: SUBQUERIES (3 queries)
@@ -128,7 +126,20 @@ WHERE primary_enrollment_pct IN (
     FROM Education_Indicators
 );
 
--- Query 7 (Category: SUBQUERIES): [Describe your query here]
+-- Query 7 (Category: SUBQUERIES): Find countries that have climate data but no recorded energy production in 2020.
+SELECT 
+    c.country_code,
+    c.avg_temperature,
+    c.climate_stress_index
+FROM Climate_Data c
+WHERE c.year = 2020
+  AND NOT EXISTS (
+        SELECT 1
+        FROM Energy_Production e
+        WHERE e.country_code = c.country_code
+          AND e.year = 2020
+      );
+
 
 
 -- ============================================
