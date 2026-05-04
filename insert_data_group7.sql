@@ -5345,16 +5345,6 @@ COMMIT;
 -- existing Country codes from the World DB.
 -- ============================================
 
--- EXAMPLE (delete this before submitting):
--- START TRANSACTION;
--- INSERT INTO Economic_Indicators 
---     (country_code, year, gdp_billion)
--- VALUES
---     ('USA', 2023, 25462.70),
---     ('CHN', 2023, 17963.17),
---     ('BRA', 2023,  2081.24);
--- COMMIT;
-
 START TRANSACTION;
 INSERT INTO Energy_Production 
     (country_code, year, total_energy_produced, 
