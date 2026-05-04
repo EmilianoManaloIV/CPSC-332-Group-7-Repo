@@ -107,7 +107,16 @@ WHERE year = 2020
       );
 
 
--- Query 6 (Category: SUBQUERIES): [Describe your query here]
+-- Query 6 (Category: SUBQUERIES): Finds countries with the highest primary school enrollment percentage.
+SELECT 
+    country_code,
+    primary_enrollment_pct,
+    literacy_percentage
+FROM Education_Indicators
+WHERE primary_enrollment_pct IN (
+    SELECT MAX(primary_enrollment_pct)
+    FROM Education_Indicators
+);
 
 
 -- Query 7 (Category: SUBQUERIES): [Describe your query here]
