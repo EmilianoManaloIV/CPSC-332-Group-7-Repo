@@ -118,7 +118,20 @@ WHERE year = 2020
 -- HAVING SUM(Tourism_Statistics.revenue_billion) > 100;
 -- ============================================
 
--- Query 8 (Category: AGGREGATION QUERIES): [Describe your query here]
+-- Query 8 (Category: Aggregation): 
+-- Compute average renewable energy share by climate stress category.
+SELECT 
+    CASE 
+        WHEN c.climate_stress_index >= 0.5 THEN 'High Stress'
+        WHEN c.climate_stress_index >= 0 THEN 'Moderate Stress'
+        ELSE 'Low Stress'
+    END AS stress_group,
+    AVG(e.renewable_percentage) AS avg_renewables
+FROM Climate_Data c
+JOIN Energy_Production e
+    ON c.country_code = e.country_code
+WHERE e.year = 2020
+GROUP BY stress_group;
 
 
 -- Query 9 (Category: AGGREGATION QUERIES): [Describe your query here]
