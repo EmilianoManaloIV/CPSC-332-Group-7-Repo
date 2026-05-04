@@ -71,11 +71,17 @@ JOIN Climate_Data c
 WHERE ei.primary_enrollment_pct > 90;
 
 
--- Query 3 (Category: JOIN): [Describe your query here]
+-- Query 3 (Category: JOIN): Shows literacy percentage for each country in 2020.
+SELECT c.Name,
+    ei.literacy_percentage
+FROM Country c
+JOIN Education_Indicators ei
+    ON c.Code = ei.country_code
+WHERE ei.year = 2020;
 
-
--- Query 4 (Category: JOIN): [Describe your query here]
-
+-- Query 4 (Category: JOIN): Shows renewable energy percentage for each country in 2020.
+SELECT c.Name,
+	   ep.renewable_percentage,
 
 -- ============================================
 -- PART 2: SUBQUERIES (3 queries)
