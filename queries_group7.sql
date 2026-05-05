@@ -37,7 +37,7 @@ USE world_group7;                     -- Replace X with your group number
 -- PART 1: JOIN QUERIES (4 queries)
 -- Must involve two or more tables
 -- At least one must be an OUTER JOIN (LEFT JOIN or RIGHT JOIN)
---=============================================
+-- =============================================
 
 -- Query 1 (Category: JOIN - OUTER JOIN): Compare temperature data even when energy data is missing (the original one you wanted).
 SELECT 
