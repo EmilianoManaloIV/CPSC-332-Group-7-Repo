@@ -4,7 +4,7 @@
 This final project for CPSC-332 is a database of our design that followed the groups implimentation from requirements gathering, design, implementation, and
 deployment. This also included a presentation in which we needed to explain our design decisions and what requirements they fulfilled. The following subsections outline our documentation (including diagrams) and the queries we created.
 ### Documentation
-- [ER Diagram](PresentationContents/ER Diagram.png](https://github.com/EmilianoManaloIV/CPSC-332-Group-7-Repo/blob/main/PresentationContents/ER%20Diagram.png)
+- [ER Diagram](https://github.com/EmilianoManaloIV/CPSC-332-Group-7-Repo/blob/main/PresentationContents/ER%20Diagram.png)
 - [Schema](https://github.com/EmilianoManaloIV/CPSC-332-Group-7-Repo/blob/main/PresentationContents/Schema.png)
 - [Physical Model](https://github.com/EmilianoManaloIV/CPSC-332-Group-7-Repo/blob/main/PresentationContents/PhysicalModel.png)
 ### Implementation
